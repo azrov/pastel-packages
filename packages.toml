@@ -1,0 +1,14 @@
+# The Pastel package registry: "pastel add <name>" and "pastel search" look here.
+# One table per package, sorted by name:
+#
+#   [name]                                  letters, digits, "-" and "_"
+#   git = "https://github.com/you/repo"     where it is
+#   path = "folder"                         only when the repository holds several packages
+#   description = "What it is, in one line"
+#
+# Versions are the tags of the repository (v1.2.3); nothing about them goes here.
+
+[serial]
+git = "https://github.com/azrov/pastel-extras"
+path = "serial"
+description = "Serial ports: COM on Windows, /dev/ttyUSB0 on Linux (scales, barcode readers, Arduino)"

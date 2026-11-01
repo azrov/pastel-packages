@@ -1,0 +1,19 @@
+name: Check
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free Pascal and Pastel
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fpc fpc-source git
+          git clone --depth 1 https://github.com/azrov/pastel "$HOME/pastel"
+          sh "$HOME/pastel/build.sh"
+          echo "$HOME/pastel/bin" >> "$GITHUB_PATH"
+      - name: Every package can be added and passes its tests
+        run: sh check.sh
